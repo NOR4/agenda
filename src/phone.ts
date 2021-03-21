@@ -22,5 +22,10 @@ export class Telephone {
     public set numero(value: number) {
         this._numero = value;
     }
+    public toString(): string{
+        return `
+- kind:  ${this.kind} 
+  numero: ${this.numero}`
+    }
    
 }

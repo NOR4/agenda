@@ -8,12 +8,6 @@ export class Mail {
         this._kind = kind;
         this._direction = direction;
     }
-    // setType(kind: string) {
-    //     this.kind = kind;
-    // }
-    // setDirection(direction: string) {
-    //     this.direction = direction;
-    // }
 
     public get kind(): string {
         return this._kind;
@@ -27,5 +21,11 @@ export class Mail {
     }
     public set direction(value: string) {
         this._direction = value;
+    }
+
+    public toString(): string{
+        return `
+- kind:  ${this.kind} 
+  direcction: ${this.direction}`
     }
 }

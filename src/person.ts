@@ -11,9 +11,9 @@ export class Person {
     private _birthday: Date;
     private _favColor: string;    
     private _gender: string;   
-    private _directions: Direction;  
-    private _mails: Mail;
-    private _telephones: Telephone;
+    private _directions: Direction[];  
+    private _mails: Mail[];
+    private _telephones: Telephone[];
     private _notes: string;
    
     /*Llamo a los parámetros de la misma manera que a los atributos porque considero que
@@ -27,9 +27,9 @@ export class Person {
                  birthday: Date,
                  favColor: string,
                  gender: string,
-                 directions: Direction,
-                 mails: Mail,
-                 telephones: Telephone,
+                 directions: Direction[],
+                 mails: Mail[],
+                 telephones: Telephone[],
                  notes: string) {
 
                 this._name = name;
@@ -92,23 +92,23 @@ export class Person {
         this._gender = value;
     }
 
-    public get directions(): Direction {
+    public get directions(): Direction[] {
         return this._directions;
     }
-    public set directions(value: Direction) {
+    public set directions(value: Direction[]) {
         this._directions= value;
     }
-    public get mails(): Mail {
+    public get mails(): Mail[] {
         return this._mails;
     }
-    public set mails(value: Mail) {
+    public set mails(value: Mail[]) {
         this._mails = value;
     }
 
-    public get telephones(): Telephone {
+    public get telephones(): Telephone[] {
         return this._telephones;
     }
-    public set telephones(value: Telephone) {
+    public set telephones(value: Telephone[]) {
         this._telephones = value;
     }
 
@@ -123,6 +123,19 @@ export class Person {
         return this.nin == dni;
     } 
 
+    public toString(): string {
+        return   `name: ${this.name}
+surname: ${this.surname}
+age: ${this.age}
+nin: ${this.nin}
+birthday:  ${this.birthday}
+favColor: ${this.favColor}
+gender: ${this.gender}
+directions: ${this.directions.map(x => x.toString()).join('')}
+telephones: ${this.telephones.map(x => x.toString()).join('')}
+mail:  ${this.mails.map(x => x.toString()).join('')}
+`
+    }   
     
   
 }

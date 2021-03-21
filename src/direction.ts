@@ -1,5 +1,3 @@
-import prompt = require("prompt")
-
 export class Direction {
     private _street: string;
 
@@ -53,18 +51,18 @@ export class Direction {
         this._floor = value;
     }
 
-    public get postalCode(): string {
-        return this._postalCode;
-    }
-    public set postalCode(value: string) {
-        this._postalCode = value;
-    }
-
     public get letter(): string {
         return this._letter;
     }
     public set letter(value: string) {
         this._letter = value;
+    }
+
+    public get postalCode(): string {
+        return this._postalCode;
+    }
+    public set postalCode(value: string) {
+        this._postalCode = value;
     }
 
     public get town(): string {
@@ -80,21 +78,16 @@ export class Direction {
     public set county(value: string) {
         this._county = value;
     }
-
-    public async getDataFromConsole() {
-        prompt.start();
-
-        const {street,
-            number,
-            floor,
-            letter,
-            postalCode,
-            town,
-            county} = await prompt.get(Object.getOwnPropertyNames(this));
-                this.street=street
-            }
-        
+    public  toString(): string {
+        return  `
+- street:  ${this.street}
+  number: ${this.number}
+  floor: ${this.floor}
+  letter: ${this.letter}
+  postalCode: ${this.postalCode}
+  town:  ${this.town}
+  county: ${this.county}`
+            
 
     }
-
 }
